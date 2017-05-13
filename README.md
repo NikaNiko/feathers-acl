@@ -23,7 +23,7 @@ app.configure(rest())
   .configure(acl(aclConfig, {
     denyNotAllowed: true,             // deny all routes without "allow" rules
     adminRoles: ['admin'],            // allow all listed in config routes for this role
-    baseUrl: 'http://localhost:8080', // need for owner rule
+    baseUrl: 'http://localhost:8080', // needed for owner rule
     jwt: {
       secret: 'blab',
       header: 'x-auth'                // Default is 'Authorization'
@@ -73,7 +73,7 @@ It gets user's role from `req.payload.roles` array.
 
 ### Owner
 
-Give access only for owner. Makes request to GET route and checks `ownerField`. First of all set:
+Give access only to owner. Makes request to GET route and checks `ownerField`. First of all, set:
 
 ```
 app.configure(acl(config, { mongooseConnection: db }));
